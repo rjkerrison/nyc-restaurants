@@ -45,7 +45,26 @@ function mapToRequest(query) {
     request['CUISINE DESCRIPTION'] = query.cuisine
   }
 
-  if (query.grade) {
+  if (query.min_grade) {
+    const grades = []
+
+    switch(query.min_grade) {
+      case 'E':
+        grades.push('E')
+      case 'D':
+        grades.push('D')
+      case 'C':
+        grades.push('C')
+      case 'B':
+        grades.push('B')
+      case 'A':
+        grades.push('A')
+        break
+    }
+
+    request['$or'] = grades.map(grade => ({'GRADE': grade}))
+  }
+  else if (query.grade) {
     request['GRADE'] = query.grade
   }
 
