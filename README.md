@@ -20,7 +20,25 @@ $ curl -s http://new-york-restaurants.appspot.com/search?cuisine=Thai&min_grade=
 
 ## Dependencies
 
-If you want to run this locally, note that you will need to provide a connectionString to a MongoDb containing the CSV data in `./config.json`.
+If you want to run this locally, note that you will need to provide `ConnectionStrings.MongoDb` in `./config.json`.
+
+```
+{
+  "ConnectionStrings": {
+    "MongoDb": ""
+  },
+  "MongoDb": {
+    "Database": "inspection",
+    "Collection": "newyorkcity"
+  }
+}
+```
+
+### Extract, Transform and Load
+
+Once you've setup your MongoDb configuration, you can populate your database by running `etl/run_etl.js`.
+
+Note that this will download the [New York restaurant inspection data][nyc-restaurants-csv] and then insert rows into your MongoDb.
 
 [nyc-restaurants-csv]: https://data.cityofnewyork.us/api/views/43nn-pn8j/rows.csv?accessType=DOWNLOAD "City of New York Restaurant Inspections (~158MB)"
 [production-url]: http://new-york-restaurants.appspot.com "New York Restaurants API"
