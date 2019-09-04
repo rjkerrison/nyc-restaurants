@@ -1,5 +1,9 @@
 {
   "ConnectionStrings": {
     "MongoDb": ""
+  },
+  "MongoDb": {
+    "Database": "inspection",
+    "Collection": "newyorkcity"
   }
 }

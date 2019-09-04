@@ -3,9 +3,10 @@ const csv = require('fast-csv')
 
 const MongoClient = require('mongodb').MongoClient
 const uri = require('../config.json').ConnectionStrings.MongoDb
+const mongoDbConfig = require('../config.json').MongoDb
 
 function loadIntoMongoDb(err, db) {
-  const collection = db.db('inspection').collection('newyorkcity')
+  const collection = db.db(mongoDbConfig.Database).collection(mongoDbConfig.Collection)
   let count = 0
 
   function insertEachRow(row) {

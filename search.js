@@ -1,8 +1,9 @@
 const MongoClient = require('mongodb').MongoClient
 const uri = require('./config.json').ConnectionStrings.MongoDb
+const mongoDbConfig = require('./config.json').MongoDb
 
 function mongodbQuery(db, query, successCallback, errorCallback) {
-  const collection = db.db('inspection').collection('newyorkcity')
+  const collection = db.db(mongoDbConfig.Database).collection(mongoDbConfig.Collection)
   const request = mapToRequest(query)
   console.log('query', request)
 
