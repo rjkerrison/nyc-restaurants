@@ -46,29 +46,32 @@ function mapToRequest(query) {
   }
 
   if (query.min_grade) {
-    const grades = []
-
-    switch(query.min_grade) {
-      case 'E':
-        grades.push('E')
-      case 'D':
-        grades.push('D')
-      case 'C':
-        grades.push('C')
-      case 'B':
-        grades.push('B')
-      case 'A':
-        grades.push('A')
-        break
-    }
-
-    request['$or'] = grades.map(grade => ({'GRADE': grade}))
+    request['$or'] = getPossibleGrades(query.min_grade)
   }
   else if (query.grade) {
     request['GRADE'] = query.grade
   }
 
   return request
+}
+
+function getPossibleGrades(minGrade) {
+  const grades = []
+
+  switch(minGrade) {
+    case 'E':
+      grades.push('E')
+    case 'D':
+      grades.push('D')
+    case 'C':
+      grades.push('C')
+    case 'B':
+      grades.push('B')
+    case 'A':
+      grades.push('A')
+      break
+  }
+  return grades.map(grade => ({'GRADE': grade}))
 }
 
 function mapToResponse(row) {
