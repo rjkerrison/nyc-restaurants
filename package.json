@@ -1,0 +1,13 @@
+{
+  "name": "New York City Restaurants",
+  "version": "1.0.0",
+  "description": "Check the New York Restaurants based on Cuisine and health Grade",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gcloud app deploy --project new-york-restaurants --quiet"
+  },
+  "author": "Robin James Kerrison",
+  "license": "ISC"
+}
