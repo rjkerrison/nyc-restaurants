@@ -9,5 +9,8 @@
     "deploy": "gcloud app deploy --project new-york-restaurants --quiet"
   },
   "author": "Robin James Kerrison",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
