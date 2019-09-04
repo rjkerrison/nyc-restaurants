@@ -12,6 +12,7 @@ The sole endpoint of the API accepts the parameters:
 * `grade`: the restaurant must have met a specific inspection grade, for example `'A'`.
 * `min_grade`: the restaurant must have met _at least_ the inspection grade, for example `'B'` would return restaurants with a `'B'` _or_ `'A'` grade.
 * `limit`: limits the number of results. If unspecified, defaults to `10`, maximum of `50`, minimum of `1`.
+* `skip`: allows skipping results. Useful for pagination. Defaults to `0`.
 
 ### Example
 
