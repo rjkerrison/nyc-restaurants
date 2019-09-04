@@ -7,7 +7,7 @@ function mongodbQuery(db, query, successCallback, errorCallback) {
   const request = mapToRequest(query)
   console.log('query', request)
 
-  const result = collection.find(request).batchSize(50)
+  const result = collection.find(request).limit(interpretLimit(query.limit))
 
   result.map(mapToResponse).toArray((err, res) => {
     if (err) {
@@ -54,6 +54,26 @@ function mapToRequest(query) {
   }
 
   return request
+}
+
+function interpretLimit(limit) {
+  if (!limit) {
+    return 10
+  }
+
+  limit = parseInt(limit)
+
+  if (isNaN(limit)) {
+    return 10
+  }
+
+  if (limit > 50)
+    return 50
+
+  if (limit < 1)
+    return 1
+
+  return limit
 }
 
 function getPossibleGrades(minGrade) {

@@ -11,11 +11,12 @@ The sole endpoint of the API accepts the parameters:
 * `cuisine`: the cuisine description of the restaurant, for example `'Thai'` or `'Italian'`
 * `grade`: the restaurant must have met a specific inspection grade, for example `'A'`.
 * `min_grade`: the restaurant must have met _at least_ the inspection grade, for example `'B'` would return restaurants with a `'B'` _or_ `'A'` grade.
+* `limit`: limits the number of results. If unspecified, defaults to `10`, maximum of `50`, minimum of `1`.
 
 ### Example
 
 ```
-$ curl -s http://new-york-restaurants.appspot.com/search?cuisine=Thai&min_grade=B
+$ curl -s http://new-york-restaurants.appspot.com/search?cuisine=Thai&min_grade=B&limit=5
 ```
 
 ## Dependencies
