@@ -1,5 +1,5 @@
 {
-  "name": "New York City Restaurants",
+  "name": "nyc-restaurants",
   "version": "1.0.0",
   "description": "Check the New York Restaurants based on Cuisine and health Grade",
   "main": "app.js",
