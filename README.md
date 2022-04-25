@@ -17,7 +17,7 @@ The sole endpoint of the API accepts the parameters:
 ### Example
 
 ```
-curl -s http://new-york-restaurants.appspot.com/search?cuisine=Thai&min_grade=B&limit=5
+curl -s "http://new-york-restaurants.appspot.com/search?cuisine=Italian&min_grade=A&limit=5"
 ```
 
 ## Dependencies
